@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>评论管理-YorkBBS管理后台</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="assets/css/backstage.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+        <script type=text/javascript src="assets/js/jquery.min.js"></script>
+        <script type=text/javascript src="assets/js/nav.js"></script>
+        <script type=text/javascript src="assets/js/drop.js"></script>
+    </head>
+    <body>
+        <div class="layer" style="display: none;">
+            <div class="layer-large layer-content">
+                <h1>评论审核
+                    <a class="layer-close" href=""><img src="assets/img/icon-close-l.png" alt="" /></a>
+                </h1>
+                <ul>                                        
+                    <li><span class="layer-cate">显示状态</span>
+                        <em class="contacts-detail-radio"><input type="checkbox" value="" /><label>显示</label></em>
+                        <em class="contacts-detail-radio"><input type="checkbox" value="" /><label>隐藏</label></em>
+                    </li>
+                    <li><span class="layer-cate">审核状态</span>
+                        <em class="contacts-detail-radio"><input type="checkbox" value="" /><label>未审核</label></em>
+                        <em class="contacts-detail-radio"><input type="checkbox" value="" /><label>审核通过</label></em>
+                    </li>
+                    <li><span class="layer-cate">评论内容</span><em><textarea class="layer-report-textarea" placeholder="评论内容，管理员可二次编辑"></textarea></em></li>
+                    <li class="layer-button layer-button-left">
+                        <span class="layer-cate">&nbsp;</span>
+                        <input type="button" class="layer-yes"  value="确定" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <section id="topbar">
+            <header class="topbar-caption">
+                <h1>YorkBBS管理后台</h1>
+                <div class="topbar-box">
+                    <div class="topbar-content">
+                        <div class="topbar-list">
+                            <ul>
+                                <li class="topbar-list-current">
+                                    <a href="">活动优惠</a>
+                                </li>                               
+                            </ul>
+                        </div>                        
+                        <div class="topbar-meta">
+                            <ul>                             
+                                <li>
+                                    <a href="">你好，ken</a>
+                                </li>
+                                <li>
+                                    <a href=""><i><img alt="" src="assets/img/icon-quit.png"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </section>
+        <aside id="nav">
+            <div class="nav-list">
+                <div class="nav-list-lit">
+                    <p class="nav-title current">
+                        <span class="nav-icon nav-icon-gai">
+                            <i></i>
+                            <font>信息管理</font>
+                            <em></em>
+                        </span>
+                    </p>
+
+                </div>
+                <div class="nav-list-lit">
+                    <p class="nav-title">
+                        <span class="nav-icon nav-icon-yun">
+                            <i></i>
+                            <font>评论管理</font>
+                            <em></em>
+                        </span>
+                    </p>
+
+                </div>
+                <div class="nav-list-lit">
+                    <p class="nav-title">
+                        <span class="nav-icon nav-icon-contact">
+                            <i></i>
+                            <font>举报管理</font>
+                            <em></em>
+                        </span>
+                    </p>
+
+                </div>
+                <div class="nav-list-lit">
+                    <p class="nav-title">
+                        <span class="nav-icon nav-icon-adver">
+                            <i></i>
+                            <font>数据统计</font>
+                            <em></em>
+                        </span>
+                    </p>
+                    <div style="display:none" class="nav-sublist">
+                        <a href="#">点击量统计</a>
+                        <a href="#">搜索词统计</a>
+                    </div>
+                </div>
+                <div class="nav-list-lit">
+                    <p class="nav-title">
+                        <span class="nav-icon nav-icon-date">
+                            <i></i>
+                            <font>日志管理</font>
+                            <em></em>
+                        </span>
+                    </p>
+                    <div style="display:none" class="nav-sublist">
+                        <a href="#">前台日志</a>
+                        <a href="#">后台日志</a>
+                    </div>
+                </div>
+                <div class="nav-list-lit">
+                    <p class="nav-title">
+                        <span class="nav-icon nav-icon-set">
+                            <i></i>
+                            <font>系统设置</font>
+                            <em></em>
+                        </span>
+                    </p>
+                    <div style="display:none" class="nav-sublist">
+                        <a href="#">权限管理</a>
+                        <a href="#">标签管理</a>
+                        <a href="#">地区管理</a>
+                    </div>
+                </div>
+                <div class="nav-list-lit">
+                    <p class="nav-title">
+                        <span class="nav-icon nav-icon-table">
+                            <i></i>
+                            <font>Newsletter</font>
+                            <em></em>
+                        </span>
+                    </p>
+                    <div style="display:none" class="nav-sublist">
+                        <a href="#">E-mail管理</a>
+                        <a href="#">信息池</a>                   
+                    </div>
+                </div>
+            </div>     
+        </aside>
+        <section class="l-wrap">
+            <div class="l-wrap-main">
+                <div class="contacts">
+                    <div class="contacts-box">         
+                        <div id="crms-filter">                         
+                            <div>
+                                <select class="form-control" name="habit" id="habit">
+                                    <option value="">显示状态</option>                                   
+                                    <option value="42">显示</option>
+                                    <option value="43">隐藏</option>                                    
+                                </select>
+                                <select class="form-control" name="habit" id="habit">
+                                    <option value="">审核状态</option>                                   
+                                    <option value="42">未审核</option>
+                                    <option value="43">已审核</option>                                    
+                                </select>
+                                <div class="form-filter-search">
+                                    <div class="input-group">
+                                        <input type="text" id="keyword" class="serch-keyword form-control form-filter-search-input" name="keyword" value="" placeholder="输入信息标题或发布人 ">
+                                        <div class="input-group-addon btn-keyword-search">搜索</div>
+                                    </div>
+                                </div>
+                                <div class="form-group-box">
+                                    <div class="form-group-custom">
+                                        <div class="input-group">
+
+                                            <input type="text" class="form-control" id="startdate" placeholder="2017-03-22">
+                                        </div>
+                                    </div> 
+                                    &nbsp; 至
+                                    <div class="form-group-custom">
+                                        <div class="input-group">
+
+                                            <input type="text" class="form-control" id="enddate" placeholder="2017-04-22">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <input class="form-control" type="text" id="startdate"> 至 <input type="text" id="enddate" class="form-control"> -->                         
+                        </div>                                           
+                        <script src="../pageCommonModul/infoFilter/InfoFilter.js"></script>
+                        <script>
+                            var hrefObj = getQueryObject(window.location.href);
+                            var filtDom = new InfoFilter($('#crms-filter'), {
+                                pageType: 'cjkh',
+                                dateTime: true,
+                                manage: [{id: 46, name: "Admin", initsel: 46}, {id: 88, name: "Jane", initsel: 46}, {id: 89, name: "Edward", initsel: 46}, {id: 92, name: "Andy", initsel: 46}, {id: 94, name: "Allen", initsel: 46}, {id: 95, name: "Ava", initsel: 46}, {id: 96, name: "Bruce", initsel: 46}, {id: 97, name: "Gill", initsel: 46}, {id: 98, name: "Ken", initsel: 46}, {id: 99, name: "Mike", initsel: 46}, {id: 100, name: "Olivia", initsel: 46}, {id: 101, name: "Tina", initsel: 46}, {id: 102, name: "Vicky", initsel: 46}, {id: 103, name: "Annie", initsel: 46}, {id: 109, name: "Alice", initsel: 46}, {id: 110, name: "Tim", initsel: 46}, {id: 111, name: "Amy", initsel: 46}, {id: 112, name: "Kitty", initsel: 46}, {id: 113, name: "Connie", initsel: 46}, {id: 114, name: "Lynn", initsel: 46}, {id: 118, name: "Bill", initsel: 46}, {id: 119, name: "Snow", initsel: 46}, {id: 120, name: "Wangli", initsel: 46}, {id: 121, name: "Smith's", initsel: 46}, {id: 122, name: "Wang", initsel: 46}, {id: 123, name: "Lili", initsel: 46}, {id: 124, name: "Test", initsel: 46}, {id: 125, name: "Newtest", initsel: 46}]
+                            }, function() {
+                                var start = $('#startdate').val();
+                                var end = $('#enddate').val();
+
+                                $('#startdate').daterangepicker({
+                                    language: 'zh-CN',
+                                    singleDatePicker: true,
+                                    startDate: start ? start : moment().subtract(30, 'days'),
+                                    locale: {
+                                        format: 'YYYY-MM-DD'
+                                    },
+                                });
+
+                                $('#enddate').daterangepicker({
+                                    language: 'zh-CN',
+                                    singleDatePicker: true,
+                                    startDate: end ? end : (start ? start : moment()),
+                                    locale: {
+                                        format: 'YYYY-MM-DD'
+                                    },
+                                });
+                                $('#startdate').on('apply.daterangepicker', function() {
+                                    filtDom.search();
+
+                                });
+                                $('#enddate').on('apply.daterangepicker', function() {
+                                    filtDom.search();
+
+                                });
+
+                            });
+
+                        </script>
+                        <div class="title-caption">
+                            <div class="contacts-opera-button">
+                                <ul class="contacts-opera-button-choose">                                   
+                                    <li>
+                                        <a class="button-choose-borderno button-gray-line" onclick="ChangeHistory()"> 批量删除</a>
+                                    </li>                                    
+                                </ul>
+                            </div>                         
+                        </div>
+                    </div>
+                    <div class="contacts-box">                       
+                        <div class="table-box">
+                            <table width="100%" border="0">
+                                <tr>
+                                    <th width="2%"><input type="checkbox" value="" /></th>
+                                    <th width="10%">评论时间</th>                                    
+                                    <th>评论内容</th>
+                                    <th>信息标题</th>
+                                    <th width="8%">评论人</th>
+                                    <th width="6%">显示状态</th>                                    
+                                    <th width="8%">操作</th>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" value="" /></td>
+                                    <td>
+                                        <em>2016-12-30  18:13</em>
+                                    </td>
+                                    <td>
+                                        <em>周六Oshawa 及 Whitby 集体看房</em>
+                                    </td>
+                                    <td>
+                                        <em class="table-blue">这个优惠套餐内容不错，值得使用</em>
+                                    </td>
+                                    <td>
+                                        <em>欧阳迎迎</em>
+                                    </td>                                       
+                                    <td>
+                                        <em>显示</em>
+                                    </td>
+                                    <td>
+                                        <em>
+                                            <a href="" class="table-blue">审核</a>
+                                            <a href="" class="table-blue">删除</a>
+                                        </em>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" value="" /></td>
+                                    <td>
+                                        <em>2016-12-30  18:13</em>
+                                    </td>
+                                    <td>
+                                        <em>周六Oshawa 及 Whitby 集体看房</em>
+                                    </td>
+                                    <td>
+                                        <em class="table-blue">这个优惠套餐内容不错，值得使用</em>
+                                    </td>
+                                    <td>
+                                        <em>欧阳迎迎</em>
+                                    </td>                                       
+                                    <td>
+                                        <em>显示</em>
+                                    </td>
+                                    <td>
+                                        <em>
+                                            <a href="" class="table-blue">审核</a>
+                                            <a href="" class="table-blue">删除</a>
+                                        </em>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" value="" /></td>
+                                    <td>
+                                        <em>2016-12-30  18:13</em>
+                                    </td>
+                                    <td>
+                                        <em>周六Oshawa 及 Whitby 集体看房</em>
+                                    </td>
+                                    <td>
+                                        <em class="table-blue">这个优惠套餐内容不错，值得使用</em>
+                                    </td>
+                                    <td>
+                                        <em>欧阳迎迎</em>
+                                    </td>                                       
+                                    <td>
+                                        <em>显示</em>
+                                    </td>
+                                    <td>
+                                        <em>
+                                            <a href="" class="table-blue">审核</a>
+                                            <a href="" class="table-blue">删除</a>
+                                        </em>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox" value="" /></td>
+                                    <td>
+                                        <em>2016-12-30  18:13</em>
+                                    </td>
+                                    <td>
+                                        <em>周六Oshawa 及 Whitby 集体看房</em>
+                                    </td>
+                                    <td>
+                                        <em class="table-blue">这个优惠套餐内容不错，值得使用</em>
+                                    </td>
+                                    <td>
+                                        <em>欧阳迎迎</em>
+                                    </td>                                       
+                                    <td>
+                                        <em>显示</em>
+                                    </td>
+                                    <td>
+                                        <em>
+                                            <a href="" class="table-blue">审核</a>
+                                            <a href="" class="table-blue">删除</a>
+                                        </em>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="listpage">
+                            <div class="pagination">
+                                <div class="anpager" id="main_content_pgFollowServer">
+                                    <div class="pagination-grid" style="width:60%;float:left;">
+                                        <a>首页</a>
+                                        <a>上一页</a>
+                                        <span class="pactive">1</span>
+                                        <a href="">2</a>
+                                        <a href="">3</a>
+                                        <a href="">4</a>
+                                        <a href="">5</a>
+                                        <a href="">...</a>
+                                        <a href="">下一页</a>
+                                        <a href="">尾页</a>
+                                    </div>
+                                    <div class="pagination-total" style="width:40%;float:left;">
+                                        共885条，每页50条
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
