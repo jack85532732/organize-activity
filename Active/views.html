@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>资讯-详情页</title>        
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">       
+        <link rel="stylesheet" href="assets/css/active.css">
+        <script src="assets/js/jquery.js"></script>
+        <script src="assets/js/play-main.js"></script>        
+    </head>
+    <body>
+        <div class="layer J-share-layer" style="display: none;">
+            <div class="layer-large layer-content">
+                <h1>分享 
+                    <a class="layer-close" href=""><img src="assets/img/icon-close-l.png" alt="" /></a>
+                </h1>
+                <div class="layer-box">
+                    <div class="layer-box-share">
+                        <a href=""><img src="assets/img/facebook.png" alt="" /></a>
+                        <a href=""><img src="assets/img/facebook.png" alt="" /></a>
+                        <a href=""><img src="assets/img/facebook.png" alt="" /></a>
+                        <a href=""><img src="assets/img/facebook.png" alt="" /></a>
+                        <a href=""><img src="assets/img/facebook.png" alt="" /></a>
+                    </div>
+                    <input class="layer-box-web" type="text" value="" />
+                </div>
+            </div>
+        </div>
+        <div class="layer J-error-layer"  style="display: none;">
+            <div class="layer-large layer-content">
+                <h1>错误报告 
+                    <a class="layer-close" href="#"><img src="assets/img/icon-close-l.png" alt="" /></a>
+                </h1>
+                <ul class="layer-em">
+                    <li>
+                        <em class="contacts-detail-radio"><input type="checkbox" value="" /><label>信息过期</label></em>
+                        <em class="contacts-detail-radio"><input type="checkbox" value="" /><label>信息错误</label></em>
+                        <em class="contacts-detail-radio"><input type="checkbox" value="" /><label>价格欺骗</label></em>
+                        <em class="contacts-detail-radio"><input type="checkbox" value="" /><label>广告</label></em>
+                        <em class="contacts-detail-radio"><input type="checkbox" value="" /><label>其它</label></em>                       
+                    </li>
+                    <li>
+                        <em><textarea class="layer-report-textarea" placeholder="请填写错误说明"></textarea></em>
+                    </li>
+                    <li class="layer-button layer-button-left">
+                        <span class="layer-cate">&nbsp;</span>
+                        <input type="button" class="layer-yes"  value="保存" />
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="topbar-mobile">
+                <div class="topbar-mobile-menu"><a href="javascript:void(0)" class="topbar-mobile-menu-back"><img src="assets/img/icon-menu.png" alt="" /></a> </div>
+                <div class="topbar-mobile-title">
+                    <h1>活动</h1>
+                </div>
+                <div class="topbar-mobile-meta">
+                    <a href="javascript:void(0)"><img src="assets/img/icon-search.png" alt="" /></a>
+                    <a href="javascript:void(0)"><img src="assets/img/icon-home.png" alt="" /></a>                   
+                </div>                
+            </div>
+            <div class="form-search-M" style="display: none;">
+                <div class="form-input-group">
+                    <input class="form-filter-search-input" name="keyword" value="" placeholder="搜索客户名称、联系电话 " type="text">
+                    <input class="form-filter-search-button" type="button" value="搜索" />                   
+                </div>
+            </div>
+        </div>
+        <div id="top">
+            <div class="row top-row">
+                <ul class="top-meta">
+                    <li title="加拿大最具影响力的中文网络媒体!" id="web-top-des">加拿大最具影响力的中文网络媒体!</li>
+                </ul>   
+                <ul class="top-nav">
+                    <li onmouseout="this.className = 'nav-name';" onmouseover="this.className = 'nav-name menu-hover';" class="top-down" id="user-login-show" style="display: none;">
+                        <div class="top-login fl drop-down">
+                            <a id="blogin_btn" class="login_over" href="">登录</a>
+                            <form onsubmit="return false;">
+                                <ul class="t_list1 drop-downcont">
+                                    <li>
+                                        <span> 
+                                            <input type="text" class="top-login-text text_user" value="" placeholder="用户名/邮箱">
+                                        </span> 
+                                    </li>
+                                    <li>
+                                        <span><input type="password" class="top-login-text text_paddword"></span>
+                                    </li>
+                                    <li>
+                                        <span>
+                                            <input type="checkbox" id="forver" class="topbutton" value="" name="forver"> 自动登录
+                                        </span> 
+                                        <span>
+                                            <a class="gray" target="_blank" href="">密码找回</a>
+                                        </span>
+                                    </li>
+                                    <li><input type="submit" class="top-login-button f14" value="登 录" onclick="javascript:LoginSubmit();">
+                                    </li>                         
+                                </ul>
+                            </form>
+                        </div>
+                    </li>
+                    <li onmouseout="this.className = 'nav-name';" onmouseover="this.className = 'nav-name menu-hover';" class="top-down" id="user-register-show" style="display: none;">
+                        <div class="top-nav-grid">
+                            <a title="还没有账号，现在就注册！" target="_blank" href=""><em>注册</em></a>
+                        </div>
+                    </li>
+                    <li onmouseout="this.className = 'nav-name';" onmouseover="this.className = 'nav-name menu-hover';" class="nav-name" style="" id="user-info-show">
+                        <div class="top-nav-grid"><a target="_blank" href=""><em class="red">约克管家</em> <i class="topspeak1 dong"></i></a></div>
+                        <dl class="nav-cont nav-my">
+                            <dt></dt>
+                            <dd><a target="_blank" href="">我的帖子</a></dd>    
+                            <dd><a target="_blank" href="">我的收藏</a></dd>    
+                            <dd><a target="_blank" href="">个人资料</a></dd>     
+                            <dd><a target="_blank" href="">我的关注</a></dd>    
+                            <dd><a target="_blank" href="">设置中心</a></dd>
+                            <dd><a href="">退出</a></dd></dl>
+                    </li>
+                    <li onmouseout="this.className = 'nav-name';" onmouseover="this.className = 'nav-name menu-hover';" class="nav-name" style="" id="user-pm-show">
+                        <div class="top-nav-grid"><a href="javascript:;"><em> <img alt="消息" src="assets/img/topmess.gif" id="icon_pm"> 消息</em> <i class="topspeak1 dong"></i> </a>
+                        </div>
+                        <dl class="nav-cont nav-my">
+                            <dd><a target="_blank" href=""> 新私信 </a></dd>
+                            <dd><a target="_blank" href="">新通知 </a></dd>
+                        </dl>
+                    </li>
+                    <li onmouseout="this.className = 'nav-name';" onmouseover="this.className = 'nav-name menu-hover';" class="nav-name">
+                        <div class="top-nav-grid">
+                            <a title="点击进入约克银行" target="_blank" href=""><em></em><i class="topspeak2 dong1"></i></a>
+                        </div>
+                    </li>
+                    <li onmouseout="this.className = 'nav-name';" onmouseover="this.className = 'nav-name menu-hover';" class="nav-name">
+                        <div class="top-nav-grid">
+                            <a title="手机约克论坛" target="_blank" href=""><em></em><i class="topspeak3 dong1"></i></a>
+                        </div>
+                    </li>
+                    <li onmouseout="this.className = 'nav-name';" onmouseover="this.className = 'nav-name menu-hover';" class="nav-name">
+                        <div class="top-nav-grid">
+                            <em></em><i title="约克论坛新浪微博" class="topspeak4 dong1"></i>
+                        </div>
+                        <div class="nav-cont top-down5 weiimg">
+                            <span>
+                                <font ><label>官方微博</label> <br>@约克论坛<br>随时了解我们的最新动态</font>
+                                <s><img alt="约克论坛微信" src="assets/img/yorkbbs-weibo.jpg"></s>
+                            </span>
+                        </div>
+                    </li>
+                    <li onmouseout="this.className = 'nav-name';" onmouseover="this.className = 'nav-name menu-hover';" class="nav-name">
+                        <div class="top-nav-grid top-down5">
+                            <em></em><i title="约克论坛微信" class="topspeak5 dong1"></i>
+                        </div>
+                        <div class="nav-cont top-down5 weiimg">
+                            <span>
+                                <font><label class="f14">YorkBBS 微信号</label> <br>yorkbbs2002<br>扫一扫，有惊喜</font>
+                                <s><img alt="约克论坛微信" src="assets/img/er.jpg"></s>
+                            </span>
+                        </div>
+                    </li>
+                    <li onmouseout="this.className = 'nav-name';" onmouseover="this.className = 'nav-name menu-hover';" class="nav-name">
+                        <div class="top-nav-grid">
+                            <a target="_self" title="點擊以繁體中文方式浏覽" id="StranLink" href="javascript:StranBody();"><em>繁体</em></a>                          
+                        </div>
+                    </li>
+                    <li onmouseout="this.className = 'nav-name';" onmouseover="this.className = 'nav-name menu-hover';" class="nav-name">
+                        <div class="top-nav-grid">
+                            <a title="点击查看全站导航" target="_blank" href=""> <em>导航</em></a>
+                        </div>
+                    </li>
+                    <li onmouseout="this.className = 'nav-name';" onmouseover="this.className = 'nav-name menu-hover';" class="nav-name">
+                        <div class="top-nav-grid">
+                            <a title="点击查看广告服务" target="_blank" href=""> <em>广告服务</em></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div id="topbar">
+            <section class="row topbar">
+                <header class="topbar-caption">
+                    <h1>
+                        <a href="">
+                            <img src="assets/img/yorkbbs.png" alt="" />
+                            <p>约克论坛：加拿大第一中文网！</p>
+                        </a>
+                    </h1>                  
+                    <div class="topbar-code">
+                        <dl>
+                            <dt><img src="assets/img/code-01.jpg" alt="" /></dt>
+                            <dd>手机用户专享<a href="">免费下载APP <img src="assets/img/select-arrow.png" alt="" /></a></dd>
+                        </dl>
+                    </div>
+                    <div class="topbar-rectangle"><a href=""><img src="assets/img/img-16.jpg" alt="" /></a></div>
+                    <div class="h_weather" id="topbar-otherweb" style="">
+                        <span>
+                            <a class="cityName">Toronto</a>
+                            <a href="">
+                                <img id="weathericon" src="http://www.yorkbbs.ca/gasdata/weathericons/03.gif" alt="" ></a>
+                            <a class="currentTemp" id="weather_deg">8°C</a>
+                        </span>
+                        <div class="">
+                            <ul class="topbar-trend">
+                                <li><a href="" target="_blank">今日油价</a><br><strong id="today_lower_fuel_price_web">107.20</strong></li>
+                                <li><font color="#454545">加元/人民币</font><br><strong id="yorkbbs_rate">0.00</strong></li>
+                            </ul>
+                        </div>
+                        <div class="topbar-search">
+                            <form>                            
+                                <input value="" placeholder="全站搜索" class="topbar-search-input" type="text"><input value="搜索" class="topbar-search-submit" type="submit">
+                            </form>
+                        </div>
+                    </div>
+                </header>
+            </section>
+            <div id="nav">
+                <div class="row nav">
+                    <ul class="nav-list">
+                        <li><a href="">首页</a></li>
+                        <li><a href="">新闻</a></li>
+                        <li><a href="">资讯</a></li>
+                        <li><a href="">房产</a></li>
+                        <li><a href="">汽车</a></li>
+                        <li><a href="">黄页</a></li>
+                        <li><a href="">美食</a></li>
+                        <li><a href="">团购</a></li>
+                        <li><a href="" class="nav-list-current">活动</a></li>                        
+                        <li><a href="">优惠</a></li>
+                        <li><a href="">商城</a></li>
+                        <li><a href="">二手</a></li>
+                        <li><a href="">交友</a></li>
+                        <li><a href="">招聘</a></li>
+                        <li><a href="">免费广告</a></li>
+                        <li><a href="">论坛</a></li>
+                    </ul>                    
+                </div>
+            </div>            
+        </div>
+        <div class="row">
+            <div class="breadcrumb">
+                <i class="breadcrumb-home"><img src="assets/img/icon-home.jpg" alt="" /></i>
+                <a href="">网站首页</a>
+                <span>></span>
+                <a href="">活动预告</a>
+                <span>></span>
+                <a href="">详情</a>                
+            </div>
+        </div>
+        <div class="row">
+            <div class="views">
+                <div class="views-box">
+                    <div class="views-cover">
+                        <img src="assets/img/img4.jpg" alt="" />
+                    </div>
+                    <div class="views-content">
+                        <h2>2017加拿大国家电影节免费看电影</h2>
+                        <ul>
+                            <li>
+                                <div class="views-content-title">时间</div>
+                                <div class="views-content-meta">11月20日  5:30 PM – 12月20日  7:30 PM</div>
+                            </li>
+                            <li>
+                                <div class="views-content-title">费用</div>
+                                <div class="views-content-meta">$5，12岁以下儿童免费</div>
+                            </li>
+                            <li>
+                                <div class="views-content-title">地址</div>
+                                <div class="views-content-meta">Wellington Street West, Toronto, ON M5V 2V5Colette Grand Café</div>
+                            </li>
+                        </ul>
+                        <div class="views-content-go">
+                            <a href="">
+                                <i>+</i>
+                                <em>立即参加</em>
+                            </a>
+                        </div>
+                        <div class="views-social">
+                            <a href="">
+                                <img src="assets/img/icon-heard.png" alt=""> 
+                                <img src="assets/img/icon-heard-red.png" alt="">
+                                收藏
+                            </a>
+                            <a class="J-share" href="http://fenxianglujing.com">
+                                <img src="assets/img/icon-share.png" alt="">
+                                <img src="assets/img/icon-share-red.png" alt="">
+                                分享
+                            </a>
+                        </div>
+                    </div>
+                    <div class="views-share">                       
+                        <div class="views-share-go good">
+                            <div class="none" id="addshow"> +1</div>
+                            <div class="zantext" onclick="document.getElementById('addshow').className = 'zanone';">
+                                <i><img src="assets/img/icon-map-heart.png" alt="" /></i>
+                                <em>想去（20）</em>
+                            </div>
+                        </div>
+                        <div class="views-share-avatar">
+                            <a href=""><img src="assets/img/icon-avtar.jpg" alt="" /></a>
+                            <a href=""><img src="assets/img/icon-avtar.jpg" alt="" /></a>
+                            <a href=""><img src="assets/img/icon-avtar.jpg" alt="" /></a>
+                            <a href=""><img src="assets/img/icon-avtar.jpg" alt="" /></a>
+                            <a href=""><img src="assets/img/icon-avtar.jpg" alt="" /></a>                            
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="l-main">
+                <section class="article">
+                    <header class="article-caption">
+                        <h1>活动详情</h1>
+                    </header>
+                    <article class="article-cont">
+                        <p>1月26日 安省冬季旅游展 安省热门旅游区及五大滑雪场共聚一堂 助您计划完美白雪假期!</p>
+                        <p>加拿大冬天漫长寒冷，初来步到不太习惯的华人难免感觉单调和寂寞，其实冬天的冰天雪地里蕴含无限生机与乐趣，高山滑雪体验零度飞跃、雪鞋远足踏遍山林原野、雪地摩托穿山越岭、
+                            还有狗拉雪橇、湖面冰钓等等，令人对冬季充满期待。</p>
+                        <p>此次展览会邀请安省五大滑雪场(蓝山、圣路易斯、马蹄谷、雪谷、Brimacombe)、知名度假胜地及冬季探险活动机构前来万锦市万豪酒店宴会厅参展，帮助华人朋友计划一个动感活力温情满载的白雪假期。</p>
+                        <p>此次活动将送出二十余份免费旅游奖品!提前报名更有双倍机会赢大奖!</p>
+                        <p>头三大奖分别为：</p>
+                        <p>一等奖： 阿岗昆二人情侣度假套餐，价值$1,630 (由Couples Resort赞助)</p>
+                        <p>二等奖：二人圣安妮百年古堡水疗套餐，价值$550 (由Ste. Anne’s Spa赞助)</p>
+                        <p>三等奖：哈里伯顿二人周末度假套餐：价值$450 (由Bonnie View Inn赞助)</p>
+                        <p>更多奖品请登录网站：www.ontravelexpo.</p>
+                        <div class="article-img"><img src="assets/img/article-img.jpg" alt="" /></div>
+                    </article>
+                    <dl class="article-tags">
+                        <dt>标签：</dt>
+                        <dd>
+                            <a href="">Jivesse</a>
+                            <span> | </span>
+                            <a href="">胶原蛋白</a>
+                            <span> | </span>
+                            <a href="">面霜</a>                                
+                        </dd>
+                    </dl>
+                    <div class="article-social">
+                        <div class="views-share-facebook">
+                            <i><img src="assets/img/icon-facebook.png" alt=""></i>
+                            <em>Facebook</em>
+                        </div>
+                        <div class="views-share-twitter">
+                            <i><img src="assets/img/icon-twitter.png" alt=""></i>
+                            <em>Twitter</em>
+                        </div>
+                        <div class="views-share-wechat">
+                            <i><img src="assets/img/icon-wechat.png" alt=""></i>
+                            <em>微信好友</em>
+                        </div>
+                        <div class="views-share-go">
+                            <i><img src="assets/img/icon-map-heart.png" alt=""></i>
+                            <em>想去（20）</em>
+                        </div>
+                        <div class="views-share-error J-error-submit">
+                            <i><img src="assets/img/icon-error.png" alt=""></i>
+                            <em>错误报告</em>
+                        </div>
+                    </div>
+                </section>
+                <div class="map-views">
+                    <img src="assets/img/map-1.jpg" alt="" />
+                </div>
+                <section class="article">
+                    <header class="article-caption">
+                        <h1>推荐活动</h1>
+                    </header>
+                    <div class="newslist newslist-grid-3">
+                        <ul>                           
+                            <li>
+                                <div class="newslist-content">
+                                    <div class="newslist-cover">
+                                        <a href="" title=""><img src="assets/img/img1.jpg" alt=""></a>
+                                        <p class="newslist-channel"><a href="" title="">$5，12岁以下儿童免费</a></p>
+                                        <!--<span class="newslist-label">热门</span>-->
+                                    </div>
+                                    <div class="newslist-recommend-cont">
+                                        <div class="newslist-body">
+                                            <div class="newslist-date">11月20日 至 11月20日</div>
+                                            <div class="newslist-title newslist-trend-title"><a href="view.html" title="">Prima Academy盛大开张——音乐、绘画、舞蹈</a></div>
+                                        </div>
+                                        <div class="newslist-footer">
+                                            <div class="newslist-tags">
+                                                <a href="">#周末好去处 </a>
+                                                <a href="">#公益讲座</a>
+                                            </div>
+                                            <div class="newslist-bookmark">
+                                                <a href="">
+                                                    <img src="assets/img/icon-share.png" alt="" />
+                                                    <img src="assets/img/icon-share-red.png" alt="" />
+                                                </a>
+                                                <a href="">
+                                                    <img src="assets/img/icon-heard.png" alt="" />
+                                                    <img src="assets/img/icon-heard-red.png" alt="" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </li>
+                            <li>
+                                <div class="newslist-content">
+                                    <div class="newslist-cover">
+                                        <a href="" title=""><img src="assets/img/img1.jpg" alt=""></a>
+                                        <p class="newslist-channel"><a href="" title="">$5，12岁以下儿童免费</a></p>
+                                        <!--<span class="newslist-label">热门</span>-->
+                                    </div>
+                                    <div class="newslist-recommend-cont ">
+                                        <div class="newslist-body">
+                                            <div class="newslist-date">11月20日 至 11月20日</div>
+                                            <div class="newslist-title newslist-trend-title"><a href="view.html" title="">Prima Academy盛大开张——音乐、绘画、舞蹈</a></div>
+                                        </div>
+                                        <div class="newslist-footer">
+                                            <div class="newslist-tags">
+                                                <a href="">#周末好去处 </a>
+                                                <a href="">#公益讲座</a>
+                                            </div>
+                                            <div class="newslist-bookmark">
+                                                <a href="">
+                                                    <img src="assets/img/icon-share.png" alt="" />
+                                                    <img src="assets/img/icon-share-red.png" alt="" />
+                                                </a>
+                                                <a href="">
+                                                    <img src="assets/img/icon-heard.png" alt="" />
+                                                    <img src="assets/img/icon-heard-red.png" alt="" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>                       
+                            </li>
+                            <li>
+                                <div class="newslist-content">
+                                    <div class="newslist-cover">
+                                        <a href="" title=""><img src="assets/img/img1.jpg" alt=""></a>
+                                        <p class="newslist-channel"><a href="" title="">$5，12岁以下儿童免费</a></p>
+                                        <!--<span class="newslist-label">热门</span>-->
+                                    </div>
+                                    <div class="newslist-recommend-cont ">
+                                        <div class="newslist-body">
+                                            <div class="newslist-date">11月20日 至 11月20日</div>
+                                            <div class="newslist-title newslist-trend-title"><a href="view.html" title="">Prima Academy盛大开张——音乐、绘画、舞蹈</a></div>
+                                        </div>
+                                        <div class="newslist-footer">
+                                            <div class="newslist-tags">
+                                                <a href="">#周末好去处 </a>
+                                                <a href="">#公益讲座</a>
+                                            </div>
+                                            <div class="newslist-bookmark">
+                                                <a href="">
+                                                    <img src="assets/img/icon-share.png" alt="" />
+                                                    <img src="assets/img/icon-share-red.png" alt="" />
+                                                </a>
+                                                <a href="">
+                                                    <img src="assets/img/icon-heard.png" alt="" />
+                                                    <img src="assets/img/icon-heard-red.png" alt="" />
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                </div>                       
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+                <div class="article-comment">
+                    <p>您有任何问题，在这里提问！</p>
+                    <div class="article-comment-textarea">
+                        <textarea placeholder="想对主办方说..."></textarea>
+                        <input type="button" value="提问" />
+                    </div>
+                    <h2>全部评论</h2>
+                    <div class="article-comment-no">
+                        <i><img src="assets/img/icon-comment-no.png" alt="" /></i>
+                        <em>还没有人提问，赶快抢个沙发！</em>
+                    </div>
+                    <ul class="article-comment-list">
+                        <li>
+                            <div class="article-comment-cover"><a href=""><img src="assets/img/icon-avtar.jpg" alt="" /></a></div>
+                            <div class="article-comment-content">
+                                <h3><a href="">怡情楼</a><span>3分钟前</span></h3>
+                                <p>这个优惠套餐内容不错，值得使用这个优惠套餐内容不错，值得使用这个优惠套餐内容不错，值得使用这个优惠套餐内容不错，值得使用这个优惠套餐内容不错，值得使用这个优惠套餐内容不错，值得使用</p>
+                            </div>                          
+                        </li>
+                        <li>
+                            <div class="article-comment-cover"><a href=""><img src="assets/img/icon-avtar.jpg" alt="" /></a></div>
+                            <div class="article-comment-content">
+                                <h3><a href="">怡情楼</a><span>3分钟前</span></h3>
+                                <p>这个优惠套餐内容不错，值得使用这个优惠套餐内容不错</p>
+                            </div>                           
+                        </li>
+                        <li>
+                            <div class="article-comment-cover"><a href=""><img src="assets/img/icon-avtar.jpg" alt="" /></a></div>
+                            <div class="article-comment-content">
+                                <h3><a href="">怡情楼</a><span>3分钟前</span></h3>
+                                <p>这个优惠套餐内容不错，值得使用这个优惠套餐内容不错，值得使用这个优惠套餐内容不错，值得使用这个优惠套餐内容不错</p>
+                            </div>                            
+                    </ul>
+                </div>
+            </div>
+            <aside class="l-aside-widget">
+                <div class="map">
+                    <img src="assets/img/map-1.jpg" alt="" />
+                </div>                
+                <div class="active-box">
+                    <section class="active-blk active-newsletter-box">
+                        <h1>NEWSLETTER</h1>
+                        <p class="active-summary">填写E-mail，YorKBBS将定期向您推送最新的活动信息。</p>                       
+                        <div class="active-email">
+                            <input type="text" value="" placeholder="请输入E-mail" />
+                            <input type="button" value="提交" />
+                        </div>
+                    </section>
+                </div>
+                <div class="active-box">
+                    <section class="active-blk imagepost">
+                        <h1>周末好去处</h1>                        
+                        <ul class="imagepost-list">
+                            <li>
+                                <div class="imagepost-cover"><a href=""><img src="assets/img/img1.jpg" alt=""></a></div>
+                                <div class="imagepost-cont">
+                                    <p class="imagepost-summary">
+                                        <a href="">旺市近Steeles 三房三卫镇屋出租</a>
+                                    </p>
+                                    <div class="imagepost-highlight">
+                                        <em>$4200</em> 
+                                        <i>/月</i>
+                                    </div>                                
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imagepost-cover"><a href=""><img src="assets/img/img1.jpg" alt=""></a></div>
+                                <div class="imagepost-cont">
+                                    <p class="imagepost-summary">
+                                        <a href="">旺市近Steeles 三房三卫镇屋出租</a>
+                                    </p>
+                                    <div class="imagepost-highlight">
+                                        <em>$4200</em> 
+                                        <i>/月</i>
+                                    </div>                                
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imagepost-cover"><a href=""><img src="assets/img/img1.jpg" alt=""></a></div>
+                                <div class="imagepost-cont">
+                                    <p class="imagepost-summary">
+                                        <a href="">旺市近Steeles 三房三卫镇屋出租</a>
+                                    </p>
+                                    <div class="imagepost-highlight">
+                                        <em>$4200</em> 
+                                        <i>/月</i>
+                                    </div>                                
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imagepost-cover"><a href=""><img src="assets/img/img1.jpg" alt=""></a></div>
+                                <div class="imagepost-cont">
+                                    <p class="imagepost-summary">
+                                        <a href="">旺市近Steeles 三房三卫镇屋出租</a>
+                                    </p>
+                                    <div class="imagepost-highlight">
+                                        <em>$4200</em> 
+                                        <i>/月</i>
+                                    </div>                                
+                                </div>
+                            </li>
+                            <li>
+                                <div class="imagepost-cover"><a href=""><img src="assets/img/img1.jpg" alt=""></a></div>
+                                <div class="imagepost-cont">
+                                    <p class="imagepost-summary">
+                                        <a href="">旺市近Steeles 三房三卫镇屋出租</a>
+                                    </p>
+                                    <div class="imagepost-highlight">
+                                        <em>$4200</em> 
+                                        <i>/月</i>
+                                    </div>                                
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                </div>
+                <div class="active-aside-wechat">
+                    <img src="assets/img/share-wechat.jpg" alt="约克论坛">
+                </div>
+            </aside>
+        </div>
+        <footer id="footer">
+            <section class="row footer">
+                <div class="footer-version">
+                    <h1><a href=""><img src="assets/img/yorkbbs-footer.png" alt="约克论坛"></a></h1>
+                    <ul>
+                        <li>
+                            <a href="">About YorkBBS</a>
+                            <span>|</span>
+                            <a href="">关于我们</a>
+                            <span>|</span>
+                            <a href="">广告服务</a>                       
+                            <span>|</span>
+                            <a href="">免责声明</a>
+                            <span>|</span>
+                            <a href="">网站导航</a>
+                        </li>                   
+                        <li class="footer-copyright">Copyright &copy; 2002-2016Yorkbbs.ca 约克论坛版权所有</li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <dl>
+                        <dt>联系我们</dt>
+                        <dd>媒体合作：<a href="">marketing@yorkbbs.ca</a></dd>
+                        <dd>广告热线：416-628-9108</dd>
+                        <dd>广告邮件：<a href="">info@yorkbbs.ca</a></dd>
+                        <dd>网站管理：<a href="">admin@yorkbbs.ca</a></dd>
+                    </dl>
+                </div>
+                <dl>
+                    <dt></dt>
+                    <dd>
+                        <div class="footer-code">
+                            <img src="assets/img/code-wechat.jpg" alt="" />                          
+                            <p>打开微信  扫一扫</p>
+                        </div>
+                        <div class="footer-code">                          
+                            <img src="assets/img/code-app.jpg" alt="" />
+                            <p>约克论坛客户端</p>
+                        </div>
+                        <div class="footer-appdown">
+                            <a href=""><img src="assets/img/iphone.png" alt=""></a>
+                            <a href=""><img src="assets/img/android.png" alt=""></a>
+                        </div>
+                    </dd>
+                </dl>
+            </section>
+        </footer>
+        <!--
+        <div class="footer-fixed">
+            <ul class="footer-fixed-meta">
+                <li>
+                    <a href=""><img src="assets/img/icon-share.png" alt=""> 分享</a>
+                </li>
+                <li>
+                    <a href=""><img src="assets/img/icon-heard.png" alt=""> 想去</a>
+                </li>
+                <li><a href="">直达链接</a></li>
+            </ul>
+        </div>
+        -->
+        <div class="footer-mobile">                
+            Copyright © 2002-2017 Yorkbbs.ca All Rights Reserved.
+        </div>
+    </body>
+</html>
