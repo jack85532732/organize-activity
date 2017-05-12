@@ -173,22 +173,21 @@ $(function(){
 	});
 	/*google map*/
 	function initialize(lat,lng)
-    {
-        var mapProp = {
-            center:new google.maps.LatLng(lat,lng),
-            zoom:10,
-            mapTypeId:google.maps.MapTypeId.ROADMAP
-        };
-        var map=new google.maps.Map(document.getElementById('google-map'), mapProp);
-    }
+            {
+                var mapProp = {
+                    center:new google.maps.LatLng(lat,lng),
+                    zoom:10,
+                    mapTypeId:google.maps.MapTypeId.ROADMAP
+                };
+                var map=new google.maps.Map(document.getElementById('google-map'), mapProp);
+            }
             
            
 	$('.J-map').keyup(function(){
-		var zone = $('.J-change-zone').val();
 		var keyval = $(this).val();
 		$.ajax({
 			url:'https://maps.googleapis.com/maps/api/geocode/json',
-			data:{address:zone+keyval,key:'AIzaSyD0uzSeEzo4VtiYz9nIxFsRN2AWLa6s-vA'},
+			data:{address:keyval,key:'AIzaSyD0uzSeEzo4VtiYz9nIxFsRN2AWLa6s-vA'},
 			success:function(msg){
 				if(msg.status == 'OK'){
 					var location = msg.results[0].geometry.location;

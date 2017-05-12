@@ -14,9 +14,6 @@ and open the template in the editor.
         <script type=text/javascript src="assets/js/jquery.min.js"></script>
         <script type=text/javascript src="assets/js/nav.js"></script>
         <script type=text/javascript src="assets/js/drop.js"></script>
-        <link rel="stylesheet" href="assets/time/daterangepicker.css">
-        <script src="assets/time/moment.min.js"></script>
-        <script src="assets/time/daterangepicker.js"></script>
     </head>
     <body>
         <section id="topbar">
@@ -76,7 +73,20 @@ and open the template in the editor.
                         </span>
                     </p>
 
-                </div>               
+                </div>
+                <div class="nav-list-lit">
+                    <p class="nav-title">
+                        <span class="nav-icon nav-icon-adver">
+                            <i></i>
+                            <font>数据统计</font>
+                            <em></em>
+                        </span>
+                    </p>
+                    <div style="display:none" class="nav-sublist">
+                        <a href="#">点击量统计</a>
+                        <a href="#">搜索词统计</a>
+                    </div>
+                </div>
                 <div class="nav-list-lit">
                     <p class="nav-title">
                         <span class="nav-icon nav-icon-date">
@@ -101,6 +111,7 @@ and open the template in the editor.
                     <div style="display:none" class="nav-sublist">
                         <a href="#">权限管理</a>
                         <a href="#">标签管理</a>
+                        <a href="#">地区管理</a>
                     </div>
                 </div>
                 <div class="nav-list-lit">
@@ -126,18 +137,10 @@ and open the template in the editor.
                             <div>
                                 <select class="form-control" name="habit" id="habit">
                                     <option value="">操作类型</option>                                   
-                                    <option value="42">查看信息</option>
-                                    <option value="43">发布评论</option>
-                                    <option value="46">收藏信息</option>
-                                    <option value="46">信息纠错</option>
-                                    <option value="46">发布信息</option>                                 
-                                </select>    
-                                 <div class="form-filter-search">
-                                    <div class="input-group">
-                                        <input type="text" id="keyword" class="serch-keyword form-control form-filter-search-input" name="keyword" value="" placeholder="搜索操作人或操作说明">
-                                        <div class="input-group-addon btn-keyword-search">搜索</div>
-                                    </div>
-                                </div>
+                                    <option value="42">月交</option>
+                                    <option value="43">交长期</option>
+                                    <option value="46">其他</option>
+                                </select>                             
                                 <div class="form-group-box">
                                     <div class="form-group-custom">
                                         <div class="input-group">
@@ -156,7 +159,46 @@ and open the template in the editor.
                             </div>
                             <!-- <input class="form-control" type="text" id="startdate"> 至 <input type="text" id="enddate" class="form-control"> -->                         
                         </div>                                           
-                        
+                        <script src="../pageCommonModul/infoFilter/InfoFilter.js"></script>
+                        <script>
+                            var hrefObj = getQueryObject(window.location.href);
+                            var filtDom = new InfoFilter($('#crms-filter'), {
+                                pageType: 'cjkh',
+                                dateTime: true,
+                                manage: [{id: 46, name: "Admin", initsel: 46}, {id: 88, name: "Jane", initsel: 46}, {id: 89, name: "Edward", initsel: 46}, {id: 92, name: "Andy", initsel: 46}, {id: 94, name: "Allen", initsel: 46}, {id: 95, name: "Ava", initsel: 46}, {id: 96, name: "Bruce", initsel: 46}, {id: 97, name: "Gill", initsel: 46}, {id: 98, name: "Ken", initsel: 46}, {id: 99, name: "Mike", initsel: 46}, {id: 100, name: "Olivia", initsel: 46}, {id: 101, name: "Tina", initsel: 46}, {id: 102, name: "Vicky", initsel: 46}, {id: 103, name: "Annie", initsel: 46}, {id: 109, name: "Alice", initsel: 46}, {id: 110, name: "Tim", initsel: 46}, {id: 111, name: "Amy", initsel: 46}, {id: 112, name: "Kitty", initsel: 46}, {id: 113, name: "Connie", initsel: 46}, {id: 114, name: "Lynn", initsel: 46}, {id: 118, name: "Bill", initsel: 46}, {id: 119, name: "Snow", initsel: 46}, {id: 120, name: "Wangli", initsel: 46}, {id: 121, name: "Smith's", initsel: 46}, {id: 122, name: "Wang", initsel: 46}, {id: 123, name: "Lili", initsel: 46}, {id: 124, name: "Test", initsel: 46}, {id: 125, name: "Newtest", initsel: 46}]
+                            }, function() {
+                                var start = $('#startdate').val();
+                                var end = $('#enddate').val();
+
+                                $('#startdate').daterangepicker({
+                                    language: 'zh-CN',
+                                    singleDatePicker: true,
+                                    startDate: start ? start : moment().subtract(30, 'days'),
+                                    locale: {
+                                        format: 'YYYY-MM-DD'
+                                    },
+                                });
+
+                                $('#enddate').daterangepicker({
+                                    language: 'zh-CN',
+                                    singleDatePicker: true,
+                                    startDate: end ? end : (start ? start : moment()),
+                                    locale: {
+                                        format: 'YYYY-MM-DD'
+                                    },
+                                });
+                                $('#startdate').on('apply.daterangepicker', function() {
+                                    filtDom.search();
+
+                                });
+                                $('#enddate').on('apply.daterangepicker', function() {
+                                    filtDom.search();
+
+                                });
+
+                            });
+
+                        </script>
                     </div>
                     <div class="contacts-box">                       
                         <div class="table-box">
@@ -276,6 +318,5 @@ and open the template in the editor.
                 </div>
             </div>
         </section>
-
     </body>
 </html>

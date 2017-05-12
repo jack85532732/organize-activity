@@ -16,7 +16,7 @@ and open the template in the editor.
         <script type=text/javascript src="assets/js/drop.js"></script>
     </head>
     <body>
-        <div class="layer J-sort-pop" style="display: none;">
+        <div class="layer" style="display: none;">
             <div class="layer-large layer-content">
                 <h1>信息排序
                     <a class="layer-close" href=""><img src="assets/img/icon-close-l.png" alt="" /></a>
@@ -28,14 +28,6 @@ and open the template in the editor.
                         <input type="button" class="layer-yes"  value="确定" />                        
                     </li>
                 </ul>
-            </div>
-        </div>
-        <div class="layer  J-gener-view-pop" style="display: none;">
-            <div class="layer-large layer-content layer-xlarge">
-                <h1>信息排序
-                    <a class="layer-close" href=""><img src="assets/img/icon-close-l.png" alt="" /></a>
-                </h1>
-                <iframe  frameborder="0" src="newsletter.html" width="100%" height="550px"></iframe>
             </div>
         </div>
         <section id="topbar">
@@ -95,7 +87,20 @@ and open the template in the editor.
                         </span>
                     </p>
 
-                </div>               
+                </div>
+                <div class="nav-list-lit">
+                    <p class="nav-title">
+                        <span class="nav-icon nav-icon-adver">
+                            <i></i>
+                            <font>数据统计</font>
+                            <em></em>
+                        </span>
+                    </p>
+                    <div style="display:none" class="nav-sublist">
+                        <a href="#">点击量统计</a>
+                        <a href="#">搜索词统计</a>
+                    </div>
+                </div>
                 <div class="nav-list-lit">
                     <p class="nav-title">
                         <span class="nav-icon nav-icon-date">
@@ -120,6 +125,7 @@ and open the template in the editor.
                     <div style="display:none" class="nav-sublist">
                         <a href="#">权限管理</a>
                         <a href="#">标签管理</a>
+                        <a href="#">地区管理</a>
                     </div>
                 </div>
                 <div class="nav-list-lit">
@@ -166,7 +172,7 @@ and open the template in the editor.
                                     <td>
                                         <em>                                         
                                             <a href="" class="table-blue">去除</a>
-                                            <a href="" class="table-blue J-sort">排序</a>
+                                            <a href="" class="table-blue">排序</a>
                                         </em>
                                     </td>
                                 </tr>
@@ -186,7 +192,7 @@ and open the template in the editor.
                                     <td>
                                         <em>                                         
                                             <a href="" class="table-blue">去除</a>
-                                            <a href="" class="table-blue J-sort">排序</a>
+                                            <a href="" class="table-blue">排序</a>
                                         </em>
                                     </td>
                                 </tr>
@@ -206,7 +212,7 @@ and open the template in the editor.
                                     <td>
                                         <em>                                         
                                             <a href="" class="table-blue">去除</a>
-                                            <a href="" class="table-blue J-sort">排序</a>
+                                            <a href="" class="table-blue">排序</a>
                                         </em>
                                     </td>
                                 </tr>
@@ -226,7 +232,7 @@ and open the template in the editor.
                                     <td>
                                         <em>                                         
                                             <a href="" class="table-blue">去除</a>
-                                            <a href="" class="table-blue J-sort">排序</a>
+                                            <a href="" class="table-blue">排序</a>
                                         </em>
                                     </td>
                                 </tr>
@@ -246,7 +252,7 @@ and open the template in the editor.
                                     <td>
                                         <em>                                         
                                             <a href="" class="table-blue">去除</a>
-                                            <a href="" class="table-blue J-sort">排序</a>
+                                            <a href="" class="table-blue">排序</a>
                                         </em>
                                     </td>
                                 </tr>
@@ -266,7 +272,7 @@ and open the template in the editor.
                                     <td>
                                         <em>                                         
                                             <a href="" class="table-blue">去除</a>
-                                            <a href="" class="table-blue J-sort">排序</a>
+                                            <a href="" class="table-blue">排序</a>
                                         </em>
                                     </td>
                                 </tr>
@@ -274,17 +280,17 @@ and open the template in the editor.
                         </div>
                         <div class="title-caption">                         
                             <div class="title-caption-add">
-                                <a class="button-record J-gener-view"> 生成预览</a>
+                                <a class="button-record" onclick="add_ad()"> 生成预览</a>
                             </div>
                         </div>
                         <div class="title-caption title-history">
                             <div class="contacts-opera-button-tips">
                                 <p class=""> 历史推送</p>
                                 <font>上次推送时间 2017-4-14最多保留1个月的数据</font>
-                                <a href="" class="J-history-push"><img src="assets/img/icon-arrow-bottom.png" alt="" /></a>
+                                <a href=""><img src="assets/img/icon-arrow-bottom.png" alt="" /></a>
                             </div>
                         </div>
-                        <div class="table-box J-history-content" style="display: none;">
+                        <div class="table-box">
                             <table width="100%" border="0">
                                 <tr>
                                     <th width="5%">编号</th>
