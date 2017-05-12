@@ -16,8 +16,8 @@ and open the template in the editor.
         <script type=text/javascript src="assets/js/drop.js"></script>
     </head>
     <body>
-        <div class="layer">
-            <div class="layer-large layer-content" style="display: none;">
+        <div class="layer J-authority-pop" style="display: none;">
+            <div class="layer-large layer-content add-authority-pop" style="display: none;">
                 <h1>添加管理员
                     <a class="layer-close" href=""><img src="assets/img/icon-close-l.png" alt="" /></a>
                 </h1>
@@ -30,14 +30,14 @@ and open the template in the editor.
                     </li>
                 </ul>
             </div>
-            <div class="layer-large layer-content" style="display: none;">
+            <div class="layer-large layer-content change-start-pop" style="display: none;">
                 <h1>更改状态
                     <a class="layer-close" href=""><img src="assets/img/icon-close-l.png" alt="" /></a>
                 </h1>
                 <ul>
                     <li><span class="layer-cate">更改状态</span>
-                        <em class="contacts-detail-radio"><input type="checkbox" value="" /><label>正常状态</label></em>
-                        <em class="contacts-detail-radio"><input type="checkbox" value="" /><label>禁止登录</label></em>
+                        <em class="contacts-detail-radio"><input type="radio" value="" /><label>正常状态</label></em>
+                        <em class="contacts-detail-radio"><input type="radio" value="" /><label>禁止登录</label></em>
                     </li>
                     <li class="layer-button layer-button-left">
                         <span class="layer-cate">&nbsp;</span>
@@ -45,7 +45,7 @@ and open the template in the editor.
                     </li>
                 </ul>
             </div>
-            <div class="layer-large layer-content">
+            <div class="layer-large layer-content change-authority-pop">
                 <h1>配置权限
                     <a class="layer-close" href=""><img src="assets/img/icon-close-l.png" alt="" /></a>
                 </h1>
@@ -128,20 +128,7 @@ and open the template in the editor.
                         </span>
                     </p>
 
-                </div>
-                <div class="nav-list-lit">
-                    <p class="nav-title">
-                        <span class="nav-icon nav-icon-adver">
-                            <i></i>
-                            <font>数据统计</font>
-                            <em></em>
-                        </span>
-                    </p>
-                    <div style="display:none" class="nav-sublist">
-                        <a href="#">点击量统计</a>
-                        <a href="#">搜索词统计</a>
-                    </div>
-                </div>
+                </div>               
                 <div class="nav-list-lit">
                     <p class="nav-title">
                         <span class="nav-icon nav-icon-date">
@@ -166,7 +153,6 @@ and open the template in the editor.
                     <div style="display:none" class="nav-sublist">
                         <a href="#">权限管理</a>
                         <a href="#">标签管理</a>
-                        <a href="#">地区管理</a>
                     </div>
                 </div>
                 <div class="nav-list-lit">
@@ -190,7 +176,7 @@ and open the template in the editor.
                     <div class="contacts-box">         
                         <div class="title-caption">                          
                             <div class="title-caption-add">
-                                <a class="button-record" onclick="add_ad()"><i><img src="assets/img/button-add.png" alt="新增广告位"> </i> 添加管理员</a>
+                                <a class="button-record J-add-admin" ><i><img src="assets/img/button-add.png" alt="新增广告位"> </i> 添加管理员</a>
                             </div>
                         </div>
                     </div>
@@ -215,8 +201,8 @@ and open the template in the editor.
                                     </td>
                                     <td>
                                         <em>
-                                            <a href="" class="table-blue">更改状态</a>
-                                            <a href="" class="table-blue">配置权限</a>
+                                            <a href="" class="table-blue J-change-start">更改状态</a>
+                                            <a href="" class="table-blue J-change-authority">配置权限</a>
                                         </em>
                                     </td>
                                 </tr>
@@ -232,8 +218,8 @@ and open the template in the editor.
                                     </td>
                                     <td>
                                         <em>
-                                            <a href="" class="table-blue">更改状态</a>
-                                            <a href="" class="table-blue">配置权限</a>
+                                            <a href="" class="table-blue J-change-start">更改状态</a>
+                                            <a href="" class="table-blue J-change-authority">配置权限</a>
                                         </em>
                                     </td>
                                 </tr>
@@ -249,8 +235,8 @@ and open the template in the editor.
                                     </td>
                                     <td>
                                         <em>
-                                            <a href="" class="table-blue">更改状态</a>
-                                            <a href="" class="table-blue">配置权限</a>
+                                            <a href="" class="table-blue J-change-start">更改状态</a>
+                                            <a href="" class="table-blue J-change-authority">配置权限</a>
                                         </em>
                                     </td>
                                 </tr>
@@ -266,8 +252,8 @@ and open the template in the editor.
                                     </td>
                                     <td>
                                         <em>
-                                            <a href="" class="table-blue">更改状态</a>
-                                            <a href="" class="table-blue">配置权限</a>
+                                            <a href="" class="table-blue J-change-start">更改状态</a>
+                                            <a href="" class="table-blue J-change-authority">配置权限</a>
                                         </em>
                                     </td>
                                 </tr>

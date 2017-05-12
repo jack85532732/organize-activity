@@ -14,6 +14,9 @@ and open the template in the editor.
         <script type=text/javascript src="assets/js/jquery.min.js"></script>
         <script type=text/javascript src="assets/js/nav.js"></script>
         <script type=text/javascript src="assets/js/drop.js"></script>
+        <link rel="stylesheet" href="assets/time/daterangepicker.css">
+        <script src="assets/time/moment.min.js"></script>
+        <script src="assets/time/daterangepicker.js"></script>
     </head>
     <body>
         <section id="topbar">
@@ -73,20 +76,7 @@ and open the template in the editor.
                         </span>
                     </p>
 
-                </div>
-                <div class="nav-list-lit">
-                    <p class="nav-title">
-                        <span class="nav-icon nav-icon-adver">
-                            <i></i>
-                            <font>数据统计</font>
-                            <em></em>
-                        </span>
-                    </p>
-                    <div style="display:none" class="nav-sublist">
-                        <a href="#">点击量统计</a>
-                        <a href="#">搜索词统计</a>
-                    </div>
-                </div>
+                </div>               
                 <div class="nav-list-lit">
                     <p class="nav-title">
                         <span class="nav-icon nav-icon-date">
@@ -111,7 +101,6 @@ and open the template in the editor.
                     <div style="display:none" class="nav-sublist">
                         <a href="#">权限管理</a>
                         <a href="#">标签管理</a>
-                        <a href="#">地区管理</a>
                     </div>
                 </div>
                 <div class="nav-list-lit">
@@ -137,10 +126,21 @@ and open the template in the editor.
                             <div>
                                 <select class="form-control" name="habit" id="habit">
                                     <option value="">操作类型</option>                                   
-                                    <option value="42">月交</option>
-                                    <option value="43">交长期</option>
-                                    <option value="46">其他</option>
-                                </select>                             
+                                    <option value="42">登录后台</option>
+                                    <option value="43">审核信息</option>
+                                    <option value="46">审核评论</option>
+                                    <option value="46">处理举报</option>
+                                    <option value="46">设置权限</option>
+                                    <option value="46">删除信息</option>
+                                    <option value="46">删除评论</option>
+                                    <option value="46">删除举报</option>                                 
+                                </select>      
+                                <div class="form-filter-search">
+                                    <div class="input-group">
+                                        <input type="text" id="keyword" class="serch-keyword form-control form-filter-search-input" name="keyword" value="" placeholder="搜索操作人或操作说明">
+                                        <div class="input-group-addon btn-keyword-search">搜索</div>
+                                    </div>
+                                </div>
                                 <div class="form-group-box">
                                     <div class="form-group-custom">
                                         <div class="input-group">
@@ -305,5 +305,6 @@ and open the template in the editor.
                 </div>
             </div>
         </section>
+        
     </body>
 </html>
