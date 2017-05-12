@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>日志-前台日志-YorkBBS管理后台</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="assets/css/backstage.css" />
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css" />
+        <script type=text/javascript src="assets/js/jquery.min.js"></script>
+        <script type=text/javascript src="assets/js/nav.js"></script>
+        <script type=text/javascript src="assets/js/drop.js"></script>
+        <link rel="stylesheet" href="assets/time/daterangepicker.css">
+        <script src="assets/time/moment.min.js"></script>
+        <script src="assets/time/daterangepicker.js"></script>
+    </head>
+    <body>
+        <section id="topbar">
+            <header class="topbar-caption">
+                <h1>YorkBBS管理后台</h1>
+                <div class="topbar-box">
+                    <div class="topbar-content">
+                        <div class="topbar-list">
+                            <ul>
+                                <li class="topbar-list-current">
+                                    <a href="">活动优惠</a>
+                                </li>                               
+                            </ul>
+                        </div>                        
+                        <div class="topbar-meta">
+                            <ul>                             
+                                <li>
+                                    <a href="">你好，ken</a>
+                                </li>
+                                <li>
+                                    <a href=""><i><img alt="" src="assets/img/icon-quit.png"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </header>
+        </section>
+        <aside id="nav">
+            <div class="nav-list">
+                <div class="nav-list-lit">
+                    <p class="nav-title current">
+                        <span class="nav-icon nav-icon-gai">
+                            <i></i>
+                            <font>信息管理</font>
+                            <em></em>
+                        </span>
+                    </p>
+
+                </div>
+                <div class="nav-list-lit">
+                    <p class="nav-title">
+                        <span class="nav-icon nav-icon-yun">
+                            <i></i>
+                            <font>评论管理</font>
+                            <em></em>
+                        </span>
+                    </p>
+
+                </div>
+                <div class="nav-list-lit">
+                    <p class="nav-title">
+                        <span class="nav-icon nav-icon-contact">
+                            <i></i>
+                            <font>举报管理</font>
+                            <em></em>
+                        </span>
+                    </p>
+
+                </div>               
+                <div class="nav-list-lit">
+                    <p class="nav-title">
+                        <span class="nav-icon nav-icon-date">
+                            <i></i>
+                            <font>日志管理</font>
+                            <em></em>
+                        </span>
+                    </p>
+                    <div style="display:none" class="nav-sublist">
+                        <a href="#">前台日志</a>
+                        <a href="#">后台日志</a>
+                    </div>
+                </div>
+                <div class="nav-list-lit">
+                    <p class="nav-title">
+                        <span class="nav-icon nav-icon-set">
+                            <i></i>
+                            <font>系统设置</font>
+                            <em></em>
+                        </span>
+                    </p>
+                    <div style="display:none" class="nav-sublist">
+                        <a href="#">权限管理</a>
+                        <a href="#">标签管理</a>
+                    </div>
+                </div>
+                <div class="nav-list-lit">
+                    <p class="nav-title">
+                        <span class="nav-icon nav-icon-table">
+                            <i></i>
+                            <font>Newsletter</font>
+                            <em></em>
+                        </span>
+                    </p>
+                    <div style="display:none" class="nav-sublist">
+                        <a href="#">E-mail管理</a>
+                        <a href="#">信息池</a>                   
+                    </div>
+                </div>
+            </div>     
+        </aside>
+        <section class="l-wrap">
+            <div class="l-wrap-main">
+                <div class="contacts">
+                    <div class="contacts-box">         
+                        <div id="crms-filter">                         
+                            <div>
+                                <select class="form-control" name="habit" id="habit">
+                                    <option value="">操作类型</option>                                   
+                                    <option value="42">查看信息</option>
+                                    <option value="43">发布评论</option>
+                                    <option value="46">收藏信息</option>
+                                    <option value="46">信息纠错</option>
+                                    <option value="46">发布信息</option>                                 
+                                </select>    
+                                 <div class="form-filter-search">
+                                    <div class="input-group">
+                                        <input type="text" id="keyword" class="serch-keyword form-control form-filter-search-input" name="keyword" value="" placeholder="搜索操作人或操作说明">
+                                        <div class="input-group-addon btn-keyword-search">搜索</div>
+                                    </div>
+                                </div>
+                                <div class="form-group-box">
+                                    <div class="form-group-custom">
+                                        <div class="input-group">
+
+                                            <input type="text" class="form-control" id="startdate" placeholder="2017-03-22">
+                                        </div>
+                                    </div> 
+                                    &nbsp; 至
+                                    <div class="form-group-custom">
+                                        <div class="input-group">
+
+                                            <input type="text" class="form-control" id="enddate" placeholder="2017-04-22">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- <input class="form-control" type="text" id="startdate"> 至 <input type="text" id="enddate" class="form-control"> -->                         
+                        </div>                                           
+                        
+                    </div>
+                    <div class="contacts-box">                       
+                        <div class="table-box">
+                            <table width="100%" border="0">
+                                <tr>                                   
+                                    <th width="12%">时间</th>
+                                    <th width="12%">用户</th>
+                                    <th width="15%">操作类型</th>
+                                    <th width="15%">IP地址</th>
+                                    <th>信息标题</th>                                          
+                                    <th width="8%">操作设备</th>
+                                </tr>
+                                <tr>                                   
+                                    <td>
+                                        <em>2017-04-28 18:13</em>
+                                    </td>
+                                    <td>
+                                        <em>admin</em>
+                                    </td>
+                                    <td>
+                                        <em>查看信息</em>
+                                    </td>
+                                    <td>                                    
+                                        <em>192.168.70.224</em>
+                                    </td>
+                                    <td>
+                                        <em>功夫煮麻辣烫</em>
+                                    </td>
+                                    <td>
+                                        <em> PC </em>
+                                    </td>
+                                </tr>
+                                <tr>                                   
+                                    <td>
+                                        <em>2017-04-28 18:13</em>
+                                    </td>
+                                    <td>
+                                        <em>admin</em>
+                                    </td>
+                                    <td>
+                                        <em>查看信息</em>
+                                    </td>
+                                    <td>                                    
+                                        <em>192.168.70.224</em>
+                                    </td>
+                                    <td>
+                                        <em>功夫煮麻辣烫</em>
+                                    </td>
+                                    <td>
+                                        <em> PC </em>
+                                    </td>
+                                </tr>
+                                <tr>                                   
+                                    <td>
+                                        <em>2017-04-28 18:13</em>
+                                    </td>
+                                    <td>
+                                        <em>admin</em>
+                                    </td>
+                                    <td>
+                                        <em>查看信息</em>
+                                    </td>
+                                    <td>                                    
+                                        <em>192.168.70.224</em>
+                                    </td>
+                                    <td>
+                                        <em>功夫煮麻辣烫</em>
+                                    </td>
+                                    <td>
+                                        <em> PC </em>
+                                    </td>
+                                </tr>
+                                <tr>                                   
+                                    <td>
+                                        <em>2017-04-28 18:13</em>
+                                    </td>
+                                    <td>
+                                        <em>admin</em>
+                                    </td>
+                                    <td>
+                                        <em>查看信息</em>
+                                    </td>
+                                    <td>                                    
+                                        <em>192.168.70.224</em>
+                                    </td>
+                                    <td>
+                                        <em>功夫煮麻辣烫</em>
+                                    </td>
+                                    <td>
+                                        <em> PC </em>
+                                    </td>
+                                </tr>
+                            </table>                            
+                        </div>
+                        <div class="listpage">
+                            <div class="pagination">
+                                <div class="anpager" id="main_content_pgFollowServer">
+                                    <div class="pagination-grid" style="width:60%;float:left;">
+                                        <a>首页</a>
+                                        <a>上一页</a>
+                                        <span class="pactive">1</span>
+                                        <a href="">2</a>
+                                        <a href="">3</a>
+                                        <a href="">4</a>
+                                        <a href="">5</a>
+                                        <a href="">...</a>
+                                        <a href="">下一页</a>
+                                        <a href="">尾页</a>
+                                    </div>
+                                    <div class="pagination-total" style="width:40%;float:left;">
+                                        共885条，每页50条
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </body>
+</html>
